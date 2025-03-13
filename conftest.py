@@ -24,6 +24,7 @@ def pytest_addoption(parser):
 '''
 
 #Версия браузера
+DEFAULT_BROWSER_VERSION = '100.0' #константа для дефолтной версии браузера
 def pytest_addoption(parser):
     parser.addoption( #через парсер зачитываем наши опции
         '--browser_version', #выбор версии браузера
@@ -34,7 +35,7 @@ def pytest_addoption(parser):
 def setup_browser(request):
     #browser_name = request.config.getoption('--browser')
     browser_version = request.config.getoption('--browser_version')
-
+    browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION #это защитит от того, что не заполнили параметр
 
     #driver_options = webdriver.ChromeOptions()
     # driver_options.add_argument('--headless')  #скрыть браузер
