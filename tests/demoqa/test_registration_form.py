@@ -1,11 +1,7 @@
-import os.path
-
 from allure_commons.types import Severity
 from selene import command, have, be #browser  # вот тут убираем browser, чтобы запускать тесты в селеноиде, а не на локалке
-import pytest
 import allure
 
-#from conftest import setup_browser
 
 
 @allure.tag('critical')
